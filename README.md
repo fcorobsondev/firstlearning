@@ -23,3 +23,17 @@ Cria-se esse arquivo usando o node package manager, npm -i
 React constrói a interface,
 react-dom mostra essa interface no navegador,
 e Next.js organiza tudo isso em um framework completo e pronto para produção.
+
+## O que são protocolos
+
+São instruções que ambos personagens sabem o que devem seguir
+HTTP = Hypertext transfer protocol (Documentos com referências para outros documentos)
+FTP = File transfer protocol
+SMTP = Simple mail transfer protocol
+TCP = Informações que devem ser confiáveis e sem erros.
+UDP = Informações que precisam ser rápidas e podem ter erros.
+
+## O que fazer para levantar um servidor web?
+
+Podemos utilizar o next, por meio do comando next dev. Foi feito um script no packet.json para levantá-lo.
+Criamos o script "dev" que roda para gente o "next dev" e para rodar o script deve-se escrever "npm run dev"
