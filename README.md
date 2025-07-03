@@ -122,3 +122,4 @@ Configurar EditorConfig (definir true, [*] ident style_space e identy_size 2) SE
 Configurar o Prettier (npm install prettier -D), envia para o devdependencies SERVE PARA OS ANTERIORES E ATUAL QUE SÃO SALVOS
 prettier --check .
 prettier --write .
+Instalar o prettier extensao, definir o formatter padrao como o prettier, colocar formatação no save, remover o autosave
