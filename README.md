@@ -1,6 +1,22 @@
 Início do aprendizado no curso.dev
 
-## Comandos git
+# Tutorial GIT
+
+## Versionamento de Código
+
+### Centralizado:
+
+SCCS
+RCS
+CVS
+SVN
+
+Há a reserva do arquivo, por meio do checkout e só uma pessoa pode utilizá-lo.
+Isso ocorria para evitar o merge.
+
+### Distribuído:
+
+GIT
 
 git checkout -b criaemudaparanovabranch
 git checkout mudarparabranch
@@ -20,9 +36,9 @@ Cria-se esse arquivo usando o node package manager, npm -i
 
 ## Diferença entre o next e o react e o react-dom
 
-React constrói a interface,
+React constrói a interface (é como se fosse os elementos)
 react-dom mostra essa interface no navegador,
-e Next.js organiza tudo isso em um framework completo e pronto para produção.
+e Next.js organiza tudo isso em um framework completo e pronto para produção. É como se fosse as rotas;
 
 ## O que são protocolos
 
@@ -37,3 +53,9 @@ UDP = Informações que precisam ser rápidas e podem ter erros.
 
 Podemos utilizar o next, por meio do comando next dev. Foi feito um script no packet.json para levantá-lo.
 Criamos o script "dev" que roda para gente o "next dev" e para rodar o script deve-se escrever "npm run dev"
+Irá da erro, pois o next usa o file-based routing. Para poder mantê-lo ativo, precisaremos de ao menos uma página, que pode ser feita criando uma page/index.js e uma função. Depois exportá-la.
+
+## Irei upar o que criei na web pelo vercel
+
+Resumindo o que eu fiz até agora:
+-Meu projeto irá utilizar javascript, framework react (permitindo a utilização do plugin jsx que possibilita a criação de páginas web de maneira declarativa), next.js para subir o servidor e o vercel para fazer o deploy do site.
