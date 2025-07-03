@@ -118,4 +118,7 @@ Milestones: grandes pedras
 
 Configuração do ambiente do trabalho:
 Settings Sync do VS (gitHub)
-Configurar EditorConfig (definir true, [*] ident style_space e identy_size 2)
+Configurar EditorConfig (definir true, [*] ident style_space e identy_size 2) SERVE PARA ANTES
+Configurar o Prettier (npm install prettier -D), envia para o devdependencies SERVE PARA OS ANTERIORES E ATUAL QUE SÃO SALVOS
+prettier --check .
+prettier --write .
