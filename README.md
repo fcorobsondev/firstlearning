@@ -31,6 +31,21 @@ A foto é um commit.
 
 ## Comandos GIT
 
+git log = ver todos commits realizados
+git log --stat = situação atual do repositório online comparado com o local
+git log --oneline
+
+Estágios do GIT:
+Modificado
+Staged (escolher quais arquivos adicionar para o commit)
+Commit (Comprometer-se)
+
+git add (adicionar mudanças)
+git commit -m "msg" (assumir compromissos pelas mudanças e tirar "foto")
+git commit --amend (pega os arquivos staged e emenda com o commit anterior)
+git push (subir mudanças para o repositório git online)
+Os commits são imutáveis
+
 git checkout -b criaemudaparanovabranch
 git checkout mudarparabranch
 git branch crianovabranch
