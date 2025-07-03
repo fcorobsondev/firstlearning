@@ -79,13 +79,43 @@ SMTP = Simple mail transfer protocol
 TCP = Informações que devem ser confiáveis e sem erros.
 UDP = Informações que precisam ser rápidas e podem ter erros.
 
-## O que fazer para levantar um servidor web?
+## Client Server
 
-Podemos utilizar o next, por meio do comando next dev. Foi feito um script no packet.json para levantá-lo.
-Criamos o script "dev" que roda para gente o "next dev" e para rodar o script deve-se escrever "npm run dev"
-Irá da erro, pois o next usa o file-based routing. Para poder mantê-lo ativo, precisaremos de ao menos uma página, que pode ser feita criando uma page/index.js e uma função. Depois exportá-la.
+local/main (diretório local)
+origin/main (diretório no github/git)
+server/main (diretório lançado na internet/deploy)
 
-## Irei upar o que criei na web pelo vercel
+Cliente requisita, servidor responde a requisição. Servidor pode fazer requisição para outro servidor. É importante ter esse plano mental, usando o protocolo HTTP em cima do TCP/IP.
+Deploy = Depositar, antigamente eles eram enviados para o servidor por meio de FTP
 
-Resumindo o que eu fiz até agora:
--Meu projeto irá utilizar javascript, framework react (permitindo a utilização do plugin jsx que possibilita a criação de páginas web de maneira declarativa), next.js para subir o servidor e o vercel para fazer o deploy do site.
+## Como fazer o lançamento do site de maneira gratuita?
+
+Utilizar o vercel, importar o repositório do GIT e fazer o deploy. Ele realizará todo o processo necessário.
+
+## Modelos "orgânico" e "impressora 3d"
+
+Quando algo for criado pela primeira vez, então ela deve ser feita de maneira orgânica.
+Vantagens:
+Evitar over engeneering e feature creep (projeto com muito recurso que mais atrapalha do que ajuda)
+
+O modelo impressora 3d é utilizado para coisas que já estamos habituados, pois ele é mais rápido.
+
+## Moral (confiança) e prática
+
+a man's trash could be a other man's treasure
+organização de tarefas: trabalhar pouco / fazer muito /
+
+## Níveis de organização
+
+Nível 1: Ser lembrado individualmente.
+Nível 2: Ser lembrado em grupo.
+Nível 3: Expandir o conhecimento.
+Nível 4: Gerar métricas
+Ideia de métrica: Total de tarefas da semana/ quantas concluídas e porcentagem da conclusão
+
+Issues: pequenas pedras
+Milestones: grandes pedras
+
+Configuração do ambiente do trabalho:
+Settings Sync do VS (gitHub)
+Configurar EditorConfig (definir true, [*] ident style_space e identy_size 2)
