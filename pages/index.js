@@ -1,6 +1,6 @@
 function Home(){
     return(
-        <h1>Tu é um betinha</h1>
+        <h1>Tu é um betinha! TU É BÉEEETA</h1>
     )
 }
 
