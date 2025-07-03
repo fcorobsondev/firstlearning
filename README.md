@@ -45,6 +45,7 @@ git commit -m "msg" (assumir compromissos pelas mudanças e tirar "foto")
 git commit --amend (pega os arquivos staged e emenda com o commit anterior)
 Os commits são imutáveis
 git push (subir mudanças para o repositório git online)
+git push -f(subir mudanças para o repositório git online forçando, ao usar o amend)
 git pull (puxar dados)
 
 git checkout -b criaemudaparanovabranch
