@@ -11,12 +11,25 @@ RCS
 CVS
 SVN
 
+Ele guarda apenas o diff (Delta Encoding)
 Há a reserva do arquivo, por meio do checkout e só uma pessoa pode utilizá-lo.
-Isso ocorria para evitar o merge.
+Isso ocorria para evitar o merge e evitar erros.
 
 ### Distribuído:
 
 GIT
+
+Esse controle foi distribuído para várias pessoas, e agora o merge pode ser utilizado de maneira segura.
+Merge conflict pode ser resolvido.
+
+Podem ser tiradas várias "fotos" do meu repositório.
+Vamos supor que tenho dois arquivos: users.csv e colors.ts
+se eu tirar uma "foto" de ambos, então ambos terão um arquivo blob no git, que são a cópia deles.
+Agora se eu altero apenas o users.csv e tiro foto, então agora tenho uma "foto" que aponta para o novo blob de users.csv e que aponta para o blob já existente de colors.ts, visto que é a versão mais atualizada dele.
+Resumindo, terei sempre uma nova cópia a cada "foto" tirada, sendo que a última foto sempre apontará para a versão mais nova do arquivo.
+A foto é um commit.
+
+## Comandos GIT
 
 git checkout -b criaemudaparanovabranch
 git checkout mudarparabranch
