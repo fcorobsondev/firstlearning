@@ -1,5 +1,5 @@
 function Home() {
-  return <h1>Botafogo o maior de todos</h1>;
+  return <h1>Botafogo o maior de todos, Flamengo ruim</h1>;
 }
 
 export default Home;
