@@ -1,83 +1,26 @@
-# 📘 Guia de Estudo – Curso.dev
+## PoC x MVP
 
-## 1. **Controle de Versão**
+Proof of Concept and Minimum viable product
+MVP é fazer o mínimo para resolver problemas, não se preocupar em resolver todos os problemas, mas apenas o mínimo.
 
-### 1.1. Fundamentals
+## Fundação de Aplicação
 
-- **O que é VCS?** Um sistema de controle de versão registra todas as alterações em arquivos ao longo do tempo.
-- **Modo Centralizado (CVCS)**: único repositório central (SVN, CVS); arquivos são reservados para evitar conflitos.
-- **Modo Distribuído (DVCS)**: cada dev tem cópia completa do repositório. Git é o mais popular.
+Por que usar um banco de dados local?
+Pois será melhor para quando formos configurar para um banco de dados remoto.
 
-### 1.2. Como funciona o Git
+## Overengeneering
 
-- **Snapshots (“fotos”)**: cada commit registra o estado completo do projeto, apontando para blobs (arquivos).
-- **Fluxo**:
-  - `git add` → adiciona ao _staging_
-  - `git commit -m "msg"` → cria snapshot
-  - `git commit --amend` → modifica último commit
-  - `git push`, `git pull`, `git merge`
+Possui muitos impactos, pois o excesso compromete desempenho, segurança e qualidade.
 
-### 1.3. Branches
+## Arquitetura de software x Organização das pastas
 
-- `git checkout -b <nova>` para criar
-- `git merge <branch>` para juntar
-- `git push -u origin <branch>` para enviar
+## Testes Automatizados
 
-## 2. **Ferramentas de Projeto Node.js**
-
-### 2.1. `.nvmrc`
-
-- Especifica versão do Node.js para consistência.
-
-### 2.2. `package.json`
-
-- Define metadados, dependências e scripts do projeto.
-
-## 3. **Next.js x React x React‑DOM**
-
-### 3.1. React e React‑DOM
-
-- **React**: cria interfaces com componentes.
-- **React‑DOM**: renderiza no navegador.
-
-### 3.2. Next.js
-
-- Framework sobre React com SSR, SSG, roteamento automático.
-
-## 4. **Protocolos de Rede**
-
-- **HTTP**: transferência de hipertexto
-- **FTP**: arquivos
-- **SMTP**: e-mails
-- **TCP**: confiável
-- **UDP**: rápido, sem garantia
-
-## 5. **Arquitetura Cliente‑Servidor / Deploy**
-
-- Cliente requisita, servidor responde (via HTTP).
-- `local/main`, `origin/main`, `server/main`
-- Deploy gratuito com Vercel.
-
-## 6. **Modelos de Desenvolvimento**
-
-- **Orgânico**: evita feature creep.
-- **Impressora 3D**: replica rápido.
-
-## 7. **Produtividade & Organização**
-
-- Organização: “trabalhar pouco, fazer muito”.
-- Níveis: individual → grupo → conhecimento → métricas
-- Issues = pequenas tarefas, Milestones = metas maiores
-
-### Ambiente de Dev
-
-- VSCode: Settings Sync, EditorConfig, Prettier
-
-## 8. **Crescimento de Ideias**
-
-- Modelo McDonalds: uma ideia gera outras.
-
-## 9. **SLAs & Uptime**
-
-- SLAs preveem descontos se uptime cair.
-- Use Status Page para monitorar.
+Geralmente utiliza-se o jest
+Teste é um código que executa outro código
+O teste retorna um report (relatório)
+Como instalar o jest?
+npm i --save-dev jest@29.6.2
+comandos de teste:
+jest
+jest --watch

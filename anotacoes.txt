@@ -1,0 +1,40 @@
+# DNS PISTA 12 REVER
+
+## DNS Teórico
+
+Domínios são apelidos para um IP
+Domain Name System, tem como principal motivo transformar IPs em nomes.
+O Domain Name System contém um ponto no final dele, o endereço escrito dessa maneira é o fully qualified domain name (FQDN)
+
+www.hostinger.com/.br/.
+tld (top-level domain)/root domain
+TLD: é a única coisa que os roots sabem onde estão
+Tipos:
+ccTLDs (Country Codes)
+gTLDs (Generic Codes)
+
+ICANN é quem define os TLDs
+
+Processo Simplificado:
+Computador Requisita ao DNS Server
+DNS Server responde com o IP no Server final
+Computador Requisita ao Servidor Final por meio do IP
+Servidor retorna o pedido
+
+Proccesso Real:
+Computador requisita ao Recursive Resolver do provedor da internet o IP
+Recursive Resolver do Provedor requisita ao root server o IP
+Root Server Responde ao Recursive Resolver o IP do TLD o qual IP que o computador está Vinculado
+Recursive Resolver do Provedor requisita ao TLD informado pelo Root Server o IP
+TLD informado responde ao Recursive Resolver o IP do Authoritative Server que guarda o IP o qual estou buscando.
+Recursive Resolver do Provedor requisita ao Authoritative Server o IP que estou buscando.
+Authoritative Resolver Retorna o IP que está gravado no DNS Records ao Recursive Resolver
+Recursive Resolver passa para o computador que requisita a página pelo servidor com o ip na internet
+
+## DNS Prática
+
+O que eu devo fazer para entrar no TLD?
+
+1. Registrar um domínio no registrador. Ex: Registro.br, Hostgator, eu usei o DuckDNS
+   -Vale destacar que os registradores não possuem a detenção dos domínios, quem os possui é o Registry, no brasil o Registry é o nic.br
+2. Colocar o domínio na Vercel DNS
