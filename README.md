@@ -1,186 +1,196 @@
-## PoC x MVP
+# Guia Completo de Estudos 🚀
 
-Proof of Concept and Minimum viable product
-MVP é fazer o mínimo para resolver problemas, não se preocupar em resolver todos os problemas, mas apenas o mínimo.
+## 1. Controle de Versão
 
-## Fundação de Aplicação
+### 1.1 Conceitos e Modelos
 
-Por que usar um banco de dados local?
-Pois será melhor para quando formos configurar para um banco de dados remoto.
+- **VCS**: rastreia mudanças, permite revert, comparar versões e colaborar.
+- **CVCS (SVN/CVS)**: repositório central; arquivos podem ser bloqueados.
+- **DVCS (Git)**: cada dev tem cópia completa; trabalho off‑line e independente.
 
-## Overengeneering
+### 1.2 Funcionamento do Git (Snapshots)
 
-Possui muitos impactos, pois o excesso compromete desempenho, segurança e qualidade.
+- Git registra _snapshots_ (commits) com _blobs_ para cada arquivo.
+- Apenas os blobs alterados são armazenados, economizando espaço e aumentando segurança.
 
-## Arquitetura de software x Organização das pastas
+### 1.3 Comandos principais
 
-O que é o MVC = Model View Controller
-Model = É uma caixa de ferramentas, que consegue fazer algo útil
+- `git init`, `git clone`, `git status`, `git add`, `git commit -m "msg"`
+- `git commit --amend`, `git push`, `git push -f`, `git pull`
+- `git branch`, `git checkout`, `git merge`
+- `git rebase`, `git cherry-pick`, `git hooks` (avançado)
 
-## Testes Automatizados
+### 1.4 Melhores práticas com Git
 
-### Instalando o test runner
-
-Geralmente utiliza-se o jest
-Teste é um código que executa outro código
-O teste retorna um report (relatório)
-Como instalar o jest?
-npm i --save-dev jest@29.6.2
-comandos de teste:
-jest
-jest --watch
-
-### Criando um teste do teste
-
-test("nome do teste",função)
-expect é a expectativa
-
-test("nome do teste", () =>{
-console.log("Olá")
-})
-
-test("espero que 1 seja 1", () =>{
-expect(1+1).toBe(2)
-})
-EXPECT é o que o sistema vai enviar e o TOBE é o EXPECT, o que eu espero, é invertido
-
-TDD (desenvolvimento orientado a testes/test driven development) primeiro coloca o resultado e depois busca a função que isso vai realizar]
-
-tipos de teste do Martin Fowler e Mike Kohn:
-unit = teste de elementos individuais
-integration = teste dos elementos individuais integrados entre si (serviços)
-e2e = teste junto com a interface, simulando o do cliente ( UI)
-Dificuldade de fácil para difícil
-
-Atualmente muitos programadores já partem dos testes de integração
-
-## Criar endpoint /status (ponto final)
-
-Definir um endereço da API (Interface de Porgramação de Aplicações)
-Tudo é uma interface
-API é o filé-mignon das interfaces, utilizado facilmente pelos programas.
-A interface de usuário tem como fim o usuário padrão
-A interface de API tem como fim o dev (dados que o dev vai utilizar)
-function status(response, request){
-response.status(200).json({chave:"valor"})
-}
-curl Client URL
-curl link --verbose
-
-O que o curl está fazendo
-
-- Host localhost:3000 was resolved.
-- IPv6: ::1
-- IPv4: 127.0.0.1
-- Trying [::1]:3000...
-- Connected to localhost (::1) port 3000
-- using HTTP/1.x
-  O que foi enviado pelo servidor
-  > GET /api/status HTTP/1.1
-  > Host: localhost:3000
-  > User-Agent: curl/8.13.0
-  > Accept: _/_
-- Request completely sent off
-  reposta do servidor
-  < HTTP/1.1 200 OK
-  < Content-Type: application/json; charset=utf-8
-  < ETag: "15g6frwer6f1h"
-  < Content-Length: 55
-  < Vary: Accept-Encoding
-  < Date: Sat, 05 Jul 2025 14:50:23 GMT
-  < Connection: keep-alive
-  < Keep-Alive: timeout=5
-  <
-- Connection #0 to host localhost left intact
-  {"chave":"os alunos do curso.dev são acima da média"}%
-
-Treinando curl:
-
-curl -v https://github.com -o /dev/null
-retorna as informações de verbose, porém sem o body (-o /dev/null)
-curl https://20.201.28.151 --verbose --insecure -o /dev/null (IP obtido, porém não possui o header que eu busco)
-curl https://20.201.28.151 --verbose --insecure -o /dev/null --header 'Host:github.com' (Retorno obtido com sucesso, pois agora o ip retornou o head que eu busco)
-
-Breaking Change -> Mudanças que quebram a interface
-Non-breaking Change -> Se houver mudança não há quebra da interface
-Maneiras de fazer o NBC:
-
-1. URI PATH VERSIONING:
-   cria uma nova pasta com uma nova versão, e o cliente que utilizará a API escolhe qual versão da API usar
-2. Header Versioning
-   Cliente envia o cabeçalho com a versão que quer utilizar.
-
-Métodos HTTP:
-get
-post
-delete
-put
-patch
-
-## Subir banco de dados local
-
-### Qual banco de dados escolher?
-
-1. Escolher o DBMS/SGBD - Data Base Management System
-2. Query - Consultar
-3. Migrations (Migrações)
+- Commits **pequenos e atômicos**
+- Mensagens claras: verbo no imperativo presente.
+- Use **branching model** apropriado: feature branches, GitFlow, trunk‑based
+- Revisão de código com pull requests
+- Proteção de branches sensíveis/com assinatura de commits
+- Limpeza de branches obsoletos
+- Evitar `.gitignore` mal configurado e não versionar arquivos grandes
+- Para dados grandes: use DVC (Data Version Control)
 
 ---
 
-1. Sistema gerenciador de banco de dados:
-   ex: MySQL, PostgresSQL, Oracle Database, MongoDB, Microsoft SQL Server
-   Tipos de banco de dados:
+## 2. Node.js & NVM
 
-- Relacional (SQL) Structured Query Language (Declarativa)
-- Não relacional (NoSQL)
-  POSTGRES selecionado
+### 2.1 Gerenciamento de versões com NVM
 
-2. Query
-   ORM Object-Relation Mapping conectar o banco de dados relacionais com o objeto
-   pg é o node-postgres que vai ser utilizado para se conectar e fazer as querys
+- Use `.nvmrc` com a versão, e `nvm use` ao entrar no projeto
+- Declare `"engines": { "node": "18.x" }` em `package.json`
 
-3. Migrations
-   Arquivo que instrue uma modificação no Banco de Dados.
-   node-pg-migrate para gerenciar as migrates
+### 2.2 `package.json` – estrutura e melhores práticas
 
-Virtual Machine: Permite rodar um SO dentro do próprio sistema.
-Teoricamente ele gastaria muita memória.
+- Separe `dependencies` vs `devDependencies`
+- Inclua `package-lock.json` no Git
+- Use `"scripts"` para documentar tarefas comuns: `test`, `lint`, `build`
+- Use `.npmrc` para configurações específicas
 
-Então foi criado o dock,
+### 2.3 Organização de projeto & boas práticas
 
-Namespaces e cgroups foi utilizado para a criação do docker (namespaces 2002 e cgroups 2007)
-Virtualbox foi criado em 2007
-Vagrant foi criado em 2010
-Docker (PID namespaces) foi criado em 2013
+```
+  src/
+    controllers/
+    models/
+    routes/
+  test/
+  public/
+  .nvmrc
+  package.json
+```
 
-Ex:
-Virtual Machine: máquina -> SO -> Virtualizador -> SO virtual 1 e 2 > aplicação e Banco de Dados
-Docker: máquina -> SO -> Container Engine -> Aplicação e Banco de Dados
+- Use ESLint seguindo estilos (Airbnb, Google) e pre-commit linting
+- Documentação via JSDoc
 
-Formato de configuração do docker é o compose.yaml (não é uma linguagem de marcação), parece com python
-Dockerfile: precisa ser compilado em uma -> imagem -> que só pode ser executado em um container
-A Imagem é uploaded no dockerhub
-baixar imagem do postgres
+---
 
-### Como levantar o banco de dados?
+## 3. Frameworks e Testes
 
-criar o arquivo compose.yaml
-escrever)
+### 3.1 React / React-DOM / Next.js
+
+- **React**: criação de componentes UI.
+- **React-DOM**: renderiza no navegador.
+- **Next.js**: framework React com SSR, SSG e roteamento prontos.
+
+### 3.2 Testes automatizados
+
+- Instale o Jest (`npm i --save-dev jest@29.6.2`).
+- Comandos: `jest`, `jest --watch`
+- Exemplo de testes:
+
+```js
+test("1 + 1 = 2", () => {
+  expect(1 + 1).toBe(2);
+});
+```
+
+### 3.3 TDD
+
+- Escreva primeiro o teste (`expect`) e depois implemente o código correspondente.
+- Tipos de teste:
+  - **unit**: funções isoladas
+  - **integration**: componentes juntos
+  - **e2e**: simula comportamento do usuário
+
+---
+
+## 4. Redes e Deploy
+
+### 4.1 Protocolos comuns
+
+- **HTTP** (web), **FTP** (arquivos), **SMTP** (email)
+- **TCP** (confiável), **UDP** (rápido, sem garantias de entrega)
+
+### 4.2 Cliente vs Servidor
+
+- Cliente envia requisição HTTP, servidor envia resposta.
+- Fluxo comum: `local/main → origin/main (GitHub) → produção`
+
+### 4.3 Deploy
+
+- **Vercel**: deploy automático via integração com GitHub.
+- Outras opções: DigitalOcean, Kubernetes, AWS, Docker.
+
+---
+
+## 5. Docker e Banco de Dados
+
+### 5.1 Docker vs VM
+
+- VM: iso geral, pesado.
+- Docker: containers leves; usa namespaces, cgroups.
+
+### 5.2 Compose e Dockerfile
+
+```yaml
 services:
-database:
-image:
-enviroment:
-POSTGRES PASSWORD:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: exemplosenha
+    ports:
+      - "5432:5432"
+```
 
-rodar o comando docker compose up
-psql: é o cli oficial do postgres
+- `docker compose up -d` e `docker compose down`
+- Use `docker compose --file infra/compose.yaml up`
 
-sudo docker compose up --detach (roda o docker por fora)
- psql --host=localhost --username=postgres --port=5432 ele não consegue entrar no container do docker, para isso deve-se criar no compose os ports
-ports:
--"5432:5432"
+#### Dockerfile exemplo:
 
-agora deve reiniciar o docker: docker compose down ou docker compose up -d --force-recreate
+```Dockerfile
+FROM node:16
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+```
 
-ao alterar a pasta eu devo colocar o caminho dessa maneira:
-docker compose --file infra/compose.yaml up
+---
+
+## 6. CI/CD e Deploy Automatizado
+
+### 6.1 Integração com testes & pipelines
+
+```yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+```
+
+### 6.2 Estratégias avançadas
+
+- **Blue/Green** com PM2
+- **Rolling updates** via Kubernetes
+- **GitOps** com repositório → deploy automático
+- **Monitoramento**: logs via Winston
+
+### 6.3 Segurança
+
+- Escaneie vulnerabilidades com **Snyk** integrado ao pipeline
+
+---
+
+## 7. Arquitetura, Organização e Produtividade
+
+- **MVP**: entregue o mínimo viável.
+- Evite _overengineering_: prejudica performance e tempo.
+- Siga MVC: Model (dados), View (frontend), Controller (lógica).
+- Use Issues, Milestones, métricas para organização.
+- Ferramentas úteis: EditorConfig, Prettier, Settings Sync.
+
+---
+
+## 8. SLAs / Uptime / Status Page
+
+- SLAs definem penalidades por downtime.
+- Mantenha uma **Status Page** pública para informar falhas.
