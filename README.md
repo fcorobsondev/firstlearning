@@ -116,3 +116,71 @@ post
 delete
 put
 patch
+
+## Subir banco de dados local
+
+### Qual banco de dados escolher?
+
+1. Escolher o DBMS/SGBD - Data Base Management System
+2. Query - Consultar
+3. Migrations (Migrações)
+
+---
+
+1. Sistema gerenciador de banco de dados:
+   ex: MySQL, PostgresSQL, Oracle Database, MongoDB, Microsoft SQL Server
+   Tipos de banco de dados:
+
+- Relacional (SQL) Structured Query Language (Declarativa)
+- Não relacional (NoSQL)
+  POSTGRES selecionado
+
+2. Query
+   ORM Object-Relation Mapping conectar o banco de dados relacionais com o objeto
+   pg é o node-postgres que vai ser utilizado para se conectar e fazer as querys
+
+3. Migrations
+   Arquivo que instrue uma modificação no Banco de Dados.
+   node-pg-migrate para gerenciar as migrates
+
+Virtual Machine: Permite rodar um SO dentro do próprio sistema.
+Teoricamente ele gastaria muita memória.
+
+Então foi criado o dock,
+
+Namespaces e cgroups foi utilizado para a criação do docker (namespaces 2002 e cgroups 2007)
+Virtualbox foi criado em 2007
+Vagrant foi criado em 2010
+Docker (PID namespaces) foi criado em 2013
+
+Ex:
+Virtual Machine: máquina -> SO -> Virtualizador -> SO virtual 1 e 2 > aplicação e Banco de Dados
+Docker: máquina -> SO -> Container Engine -> Aplicação e Banco de Dados
+
+Formato de configuração do docker é o compose.yaml (não é uma linguagem de marcação), parece com python
+Dockerfile: precisa ser compilado em uma -> imagem -> que só pode ser executado em um container
+A Imagem é uploaded no dockerhub
+baixar imagem do postgres
+
+### Como levantar o banco de dados?
+
+criar o arquivo compose.yaml
+escrever)
+services:
+database:
+image:
+enviroment:
+POSTGRES PASSWORD:
+
+rodar o comando docker compose up
+psql: é o cli oficial do postgres
+
+sudo docker compose up --detach (roda o docker por fora)
+ psql --host=localhost --username=postgres --port=5432 ele não consegue entrar no container do docker, para isso deve-se criar no compose os ports
+ports:
+-"5432:5432"
+
+agora deve reiniciar o docker: docker compose down ou docker compose up -d --force-recreate
+
+ao alterar a pasta eu devo colocar o caminho dessa maneira:
+docker compose --file infra/compose.yaml up
